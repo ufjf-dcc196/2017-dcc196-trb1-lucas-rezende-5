@@ -1,4 +1,4 @@
-package com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models;
+package com.toybox.lucasrezende.dcc196_controle_feira_do_livro;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

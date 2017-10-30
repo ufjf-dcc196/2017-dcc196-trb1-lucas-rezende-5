@@ -29,9 +29,7 @@ public class Livro {
     }
 
     public String recuperaDetalhes(){
-        return "" + titulo + ";" + editora + ";" + ano + "";
-          //  temp = temp + ", participante=" + ls;
-        //}
+        return titulo + ";" + editora + ";" + ano;
     }
 
     @Override

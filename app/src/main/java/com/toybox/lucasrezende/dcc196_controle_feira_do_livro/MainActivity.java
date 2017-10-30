@@ -15,7 +15,6 @@ import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Formularios.Cadast
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Formularios.CadastroParticipante;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Helper.LivrosHelper;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Helper.ParticipantesHelper;
-import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models.DetalhesParticipante;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models.Participante;
 
 
@@ -80,7 +79,8 @@ public class MainActivity extends AppCompatActivity {
         btnLivros.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //lista livros cadastrados
+                Intent intent = new Intent(MainActivity.this, ListarLivros.class);
+                startActivity(intent);
             }
         });
 

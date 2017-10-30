@@ -16,10 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Models.DetalhesParticipante" />
+        <activity android:name=".DetalhesParticipante" />
         <activity android:name=".Formularios.CadastroParticipante" />
         <activity android:name=".Formularios.CadastroLivro" />
-        <activity android:name=".Emprestimos"></activity>
+        <activity android:name=".Emprestimos" />
+        <activity android:name=".ListarLivros"></activity>
     </application>
 
 </manifest>

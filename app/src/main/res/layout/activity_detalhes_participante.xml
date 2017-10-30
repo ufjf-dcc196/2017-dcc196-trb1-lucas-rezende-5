@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models.DetalhesParticipante">
+    tools:context="com.toybox.lucasrezende.dcc196_controle_feira_do_livro.DetalhesParticipante">
 
     <TextView
         android:id="@+id/txtParticipante"
