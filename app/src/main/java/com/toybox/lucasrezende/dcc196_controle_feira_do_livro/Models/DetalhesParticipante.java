@@ -19,9 +19,9 @@ public class DetalhesParticipante extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_participante);
 
-        txtNome = (TextView)findViewById(R.id.txtCadastro);
-        txtHoraEntrada = (TextView)findViewById(R.id.txtHoraEntrada);
-        txtHoraSaida = (TextView)findViewById(R.id.txtHoraSaida);
+        txtNome = (TextView)findViewById(R.id.txtNome);
+        txtHoraEntrada = (TextView)findViewById(R.id.txtEditora);
+        txtHoraSaida = (TextView)findViewById(R.id.txtSaida);
         txtEmailParticipante = (TextView)findViewById(R.id.txtEmailParticipante);
 
         detalhes = getIntent().getStringExtra("participante").split(";");

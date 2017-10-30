@@ -38,12 +38,12 @@ public class ParticipantesHelper {
         items.add(p1);
         items.add(p2);
         items.add(p3);
-       // items.add(p4);
-       // items.add(p5);
-       // items.add(p6);
-       // items.add(p7);
-       // items.add(p8);
-       // items.add(p9);
+        items.add(p4);
+        items.add(p5);
+        items.add(p6);
+        items.add(p7);
+        items.add(p8);
+        items.add(p9);
    }
 
     public List<Participante> getList() {
@@ -54,4 +54,7 @@ public class ParticipantesHelper {
         items.add(participante);
     }
 
+    public Participante getLast() {
+        return items.get(items.size()-1);
+    }
 }

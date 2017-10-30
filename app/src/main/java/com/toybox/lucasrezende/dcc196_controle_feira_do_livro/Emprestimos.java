@@ -3,6 +3,7 @@ package com.toybox.lucasrezende.dcc196_controle_feira_do_livro;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -25,32 +26,33 @@ public class Emprestimos extends AppCompatActivity {
     private TextView txtLocatario;
     private TextView txtLivro;
     private Participante temp;
+    private ArrayAdapter<Participante> participanteAdapter = null;
+    private ArrayAdapter<Livro> livroAdapter = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emprestimos);
 
-        lstLivros         = (ListView)findViewById(R.id.lstLivros);
-        lstParticipantes  = (ListView)findViewById(R.id.lstParticipantes);
 
-        final ArrayAdapter<Participante> participanteAdapter = new ArrayAdapter<Participante>(getApplicationContext(), android.R.layout.simple_list_item_1, ParticipantesHelper.getInstance().getList());
-        final ArrayAdapter<Livro> livroAdapter = new ArrayAdapter<Livro>(getApplicationContext(), android.R.layout.simple_list_item_1, LivrosHelper.getInstance().getList());
+            lstLivros = (ListView) findViewById(R.id.lstExemplares);
+            lstParticipantes = (ListView) findViewById(R.id.lstParticipantes);
+            txtLocatario = (TextView)findViewById(R.id.txtLocatario);
+            txtLivro = (TextView)findViewById(R.id.txtLivroEscolhido);
 
-        lstParticipantes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            participanteAdapter = new ArrayAdapter<Participante>(this, android.R.layout.simple_list_item_1, ParticipantesHelper.getInstance().getList());
+            livroAdapter = new ArrayAdapter<Livro>(this, android.R.layout.simple_list_item_1, LivrosHelper.getInstance().getList());
+
+            lstParticipantes.setAdapter(participanteAdapter);
+            lstLivros.setAdapter(livroAdapter);
+
+        lstParticipantes.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Participante escolha = participanteAdapter.getItem(i);
-                temp = escolha;
-                txtLocatario.setText(escolha.toString());
-            }
-        });
-        lstLivros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Livro escolha = livroAdapter.getItem(i);
-                txtLivro.setText(escolha.toString());
-                escolha.setReservas(temp);
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                 Participante escolha = participanteAdapter.getItem(i);
+                 temp = escolha;
+                 txtLocatario.setText(escolha.toString());
+                return true;
             }
         });
 
@@ -58,11 +60,23 @@ public class Emprestimos extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Livro escolha = livroAdapter.getItem(i);
-                Intent intent = new Intent(Emprestimos.this, DetalhesLivro.class);
-                intent.putExtra("participante", escolha.recuperaDetalhes());
-                startActivity(intent);
+                txtLivro.setText(escolha.toString());
+                escolha.setReservas(temp);
                 return true;
             }
         });
+
+        lstLivros.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Livro escolha = livroAdapter.getItem(i);
+                Intent intent = new Intent(Emprestimos.this, DetalhesLivro.class);
+                intent.putExtra("livro", escolha.recuperaDetalhes());
+                startActivity(intent);
+            }
+        });
+
     }
+
 }
+

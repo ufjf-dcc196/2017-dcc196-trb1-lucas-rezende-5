@@ -1,5 +1,6 @@
 package com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class Livro {
     private String titulo;
     private String editora;
     private int ano;
-    private List<Participante> reservas;
+    private List<Participante> reservas = new ArrayList<>();
 
     public Livro(String titulo, String editora, int ano) {
         this.titulo = titulo;
@@ -28,19 +29,13 @@ public class Livro {
     }
 
     public String recuperaDetalhes(){
-        String temp = "" + titulo + ";" + editora + ";" + ano + ";";
-        for(Participante ls: reservas) {
-            temp = temp + ", participante=" + ls;
-        }
-        return  temp;
+        return "" + titulo + ";" + editora + ";" + ano + "";
+          //  temp = temp + ", participante=" + ls;
+        //}
     }
 
     @Override
     public String toString() {
-        String temp = "Livro{" + "titulo='" + titulo + '\'' + ", editora='" + editora + '\'' + ", ano=" + ano + ", reservas=";
-                for(Participante ls: reservas) {
-                    temp = temp + ", participante=" + ls;
-                }
-        return temp;
+        return titulo;
     }
 }

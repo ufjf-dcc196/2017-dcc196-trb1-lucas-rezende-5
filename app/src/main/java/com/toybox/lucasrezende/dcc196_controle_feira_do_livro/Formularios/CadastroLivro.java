@@ -26,7 +26,7 @@ public class CadastroLivro extends AppCompatActivity {
 
         txtTitulo = (EditText)findViewById(R.id.txtNome);
         txtEditora = (EditText)findViewById(R.id.txtEditora);
-        txtAno = (EditText)findViewById(R.id.txtAno);
+        txtAno = (EditText)findViewById(R.id.txtEmail);
         btnCadastro = (Button)findViewById(R.id.btnCadastro);
 
         btnCadastro.setOnClickListener(new View.OnClickListener() {

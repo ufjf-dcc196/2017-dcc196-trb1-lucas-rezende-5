@@ -24,9 +24,9 @@ public class LivrosHelper {
     }
 
     public void populaLista() {
-        Livro l1 = new Livro("Leviatã: A missão secreta","Galera Record",2012);
-        Livro l2 = new Livro("Beemote: A Revolução","Galera Record",2013);
-        Livro l3 = new Livro("Golias: A Revelação","Galera Record",2014);
+        Livro l1 = new Livro("Leviatã A missão secreta","Galera Record",2012);
+        Livro l2 = new Livro("Beemote A Revolução","Galera Record",2013);
+        Livro l3 = new Livro("Golias A Revelação","Galera Record",2014);
 
     //carrega base de dados inicial
         items.add(l1);

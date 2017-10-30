@@ -7,7 +7,7 @@
     tools:context="com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Formularios.CadastroParticipante">
 
     <TextView
-        android:id="@+id/txtCadastro"
+        android:id="@+id/txtNomeLivroD"
         android:layout_width="369dp"
         android:layout_height="49dp"
         android:layout_marginLeft="16dp"
@@ -20,7 +20,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:id="@+id/txtAno"
+        android:id="@+id/txtEmail"
         android:layout_width="369dp"
         android:layout_height="47dp"
         android:layout_marginLeft="16dp"
@@ -63,7 +63,7 @@
         app:layout_constraintRight_toRightOf="parent"
         tools:ignore="MissingConstraints"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadastro"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomeLivroD"
         app:layout_constraintHorizontal_bias="0.0" />
 
     <Button

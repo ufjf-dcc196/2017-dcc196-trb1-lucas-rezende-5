@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Formularios.CadastroLivro;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Formularios.CadastroParticipante;
+import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Helper.LivrosHelper;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Helper.ParticipantesHelper;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models.DetalhesParticipante;
 import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models.Participante;
@@ -30,11 +31,6 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<Participante> itemsAdapter = null;
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        itemsAdapter = new ArrayAdapter<Participante>(getApplicationContext(), android.R.layout.simple_list_item_1, ParticipantesHelper.getInstance().getList());
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +43,9 @@ public class MainActivity extends AppCompatActivity {
         btnNovoLivro = (Button) findViewById(R.id.btnNovoLivro);
         lstPublico = (ListView) findViewById(R.id.lstPublico);
 
-        itemsAdapter = new ArrayAdapter<Participante>(getApplicationContext(), android.R.layout.simple_list_item_1, ParticipantesHelper.getInstance().getList());
+        itemsAdapter = new ArrayAdapter<Participante>(this, android.R.layout.simple_list_item_1, ParticipantesHelper.getInstance().getList());
         ParticipantesHelper.getInstance().populaLista();
+        LivrosHelper.getInstance().populaLista();
         lstPublico.setAdapter(itemsAdapter);
 
 
@@ -117,10 +114,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        BaseAdapter adpter = (BaseAdapter) lstPublico.getAdapter();
+        adpter.notifyDataSetChanged();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == MainActivity.RESULT_OK && requestCode == NOVO_CADASTRO_PARTICIPANTE && data != null){
-            itemsAdapter.add(ParticipantesHelper.getInstance().getList().get(ParticipantesHelper.getInstance().getList().size()));
             Toast.makeText(getApplicationContext(),data.getStringExtra("resultado"),Toast.LENGTH_SHORT).show();
             System.out.print("participante adcionado");
         }

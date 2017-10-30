@@ -9,9 +9,8 @@ import com.toybox.lucasrezende.dcc196_controle_feira_do_livro.R;
 public class DetalhesLivro extends AppCompatActivity {
 
     private TextView txtNome;
-    private TextView txtHoraEntrada;
-    private TextView txtHoraSaida;
-    private TextView txtEmailParticipante;
+    private TextView txtEditora;
+    private TextView txtAno;
     private String[] detalhes;
 
     @Override
@@ -19,17 +18,17 @@ public class DetalhesLivro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalhes_livro);
 
-        txtNome = (TextView)findViewById(R.id.txtCadastro);
-        txtHoraEntrada = (TextView)findViewById(R.id.txtHoraEntrada);
-        txtHoraSaida = (TextView)findViewById(R.id.txtHoraSaida);
-        txtEmailParticipante = (TextView)findViewById(R.id.txtEmailParticipante);
+       // txtNome = (TextView)findViewById(R.id.txtLivroTitulo);
+       // txtEditora = (TextView)findViewById(R.id.txtLivroEditora);
+       // txtAno = (TextView)findViewById(R.id.txtAnoLivro);
 
-        detalhes = getIntent().getStringExtra("participante").split(";");
-        //(0)nome (1)sobrenome (2)email (3)entrada (4)saida
-        txtNome.setText(detalhes[0] + " " + detalhes[1]);
-        txtHoraEntrada.setText(detalhes[3]);
-        txtHoraSaida.setText(detalhes[4]);
-        txtEmailParticipante.setText(detalhes[2]);
+
+        //detalhes = getIntent().getStringExtra("livro").split(";");
+        //(0)titulo (1)editora (2)Ano
+        //txtNome.setText(detalhes[0]);
+        //txtEditora.setText(detalhes[1]);
+        //txtAno.setText(detalhes[2]);
+
 
     }
 }

@@ -25,7 +25,7 @@ public class CadastroParticipante extends AppCompatActivity {
 
         txtNome = (EditText)findViewById(R.id.txtNome);
         txtSobrenome = (EditText)findViewById(R.id.txtEditora);
-        txtEmail = (EditText)findViewById(R.id.txtAno);
+        txtEmail = (EditText)findViewById(R.id.txtEmail);
         btnCadastro = (Button)findViewById(R.id.btnCadastro);
 
         btnCadastro.setOnClickListener(new View.OnClickListener() {

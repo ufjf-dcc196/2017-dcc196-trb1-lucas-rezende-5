@@ -17,4 +17,8 @@
     <string name="ano">Ano</string>
     <string name="cadastro_de_livro">Cadastro de Livro:</string>
     <string name="editora">Editora</string>
+    <string name="confirma">Confirma</string>
+    <string name="emprestimo">Emprestimo</string>
+    <string name="participantes">Participantes</string>
+    <string name="livro">Livro</string>
 </resources>
