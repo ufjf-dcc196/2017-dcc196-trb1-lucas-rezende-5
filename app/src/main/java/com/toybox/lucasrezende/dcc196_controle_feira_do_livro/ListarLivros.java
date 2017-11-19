@@ -3,6 +3,7 @@ package com.toybox.lucasrezende.dcc196_controle_feira_do_livro;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -23,7 +24,7 @@ public class ListarLivros extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listar_livros);
 
-        listaLivros = (ListView)findViewById(R.id.lstListarLivros);
+        listaLivros = (ListView) findViewById(R.id.lstListarLivros);
 
 
         livros = new ArrayAdapter<Livro>(this, android.R.layout.simple_list_item_1, LivrosHelper.getInstance().getList());
@@ -34,6 +35,7 @@ public class ListarLivros extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Livro escolha = livros.getItem(i);
                 Intent intent = new Intent(ListarLivros.this, DetalhesLivro.class);
+                Log.e("ListarLivros - Intent", escolha.toString());
                 intent.putExtra("livros",escolha.recuperaDetalhes());
                 startActivity(intent);
             }

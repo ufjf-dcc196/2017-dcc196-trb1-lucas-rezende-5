@@ -43,4 +43,10 @@ public class LivrosHelper {
         items.add(livro);
     }
 
+    public List<Participante> getListLocatario(String livro) {
+        for(Livro i: items)
+            if(i.getTitulo().equals(livro))
+                return i.getReservas();
+        return null;
+    }
 }

@@ -70,10 +70,16 @@ public class Emprestimos extends AppCompatActivity {
             public void onClick(View view) {
                 if(tempLivro != null && tempParticipante != null) {
                     tempLivro.setReservas(tempParticipante);
+                    tempLivro = null;
+                    tempParticipante = null;
                     txtLivro.setText("");
                     txtLocatario.setText("");
                     Toast.makeText(getApplicationContext(), "Emprestimo Confirmado", Toast.LENGTH_SHORT).show();
                 }else{
+                    tempLivro = null;
+                    tempParticipante = null;
+                    txtLivro.setText("");
+                    txtLocatario.setText("");
                     Toast.makeText(getApplicationContext(), "Dados Incompletos", Toast.LENGTH_SHORT).show();
                 }
             }

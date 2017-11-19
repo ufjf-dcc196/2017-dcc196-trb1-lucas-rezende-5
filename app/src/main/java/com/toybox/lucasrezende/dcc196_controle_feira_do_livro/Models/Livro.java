@@ -1,5 +1,7 @@
 package com.toybox.lucasrezende.dcc196_controle_feira_do_livro.Models;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,7 +30,12 @@ public class Livro {
         this.reservas.add(participante);
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
     public String recuperaDetalhes(){
+        Log.e("Livro", "Recupera Detalhes");
         return titulo + ";" + editora + ";" + ano;
     }
 
